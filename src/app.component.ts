@@ -6,15 +6,11 @@ import {
   inject,
   Renderer2,
   AfterViewInit,
-  ElementRef,
-  QueryList,
-  ViewChildren,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { HeroComponent } from './components/hero/hero.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { VoiceComponent } from './components/voice/voice.component';
 import { WorkComponent } from './components/work/work.component';
 import { JourneyComponent } from './components/journey/journey.component';
 
@@ -24,7 +20,6 @@ import { JourneyComponent } from './components/journey/journey.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     HeroComponent,
-    VoiceComponent,
     ServicesComponent,
     WorkComponent,
     JourneyComponent,
@@ -43,8 +38,6 @@ export class AppComponent implements AfterViewInit {
   
   private lastScrollY = 0;
   private observer!: IntersectionObserver;
-
-  @ViewChildren('section', { read: ElementRef }) sections!: QueryList<ElementRef>;
 
   constructor() {
     effect(() => {
@@ -89,8 +82,9 @@ export class AppComponent implements AfterViewInit {
       });
     }, options);
 
-    this.sections.forEach(section => {
-      this.observer.observe(section.nativeElement);
+    const sections = this.document.querySelectorAll('[data-section]');
+    sections.forEach(section => {
+      this.observer.observe(section);
     });
   }
 

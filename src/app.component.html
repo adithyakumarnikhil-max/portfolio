@@ -67,11 +67,10 @@
 
   <div class="container mx-auto px-4 md:px-8 pt-24">
     <main>
-      <app-hero #section id="home"></app-hero>
-      <app-voice #section id="voice"></app-voice>
-      <app-services #section id="services"></app-services>
-      <app-work #section id="work"></app-work>
-      <app-journey #section id="about"></app-journey>
+      <app-hero data-section id="home"></app-hero>
+      <app-services data-section id="services"></app-services>
+      <app-work data-section id="work"></app-work>
+      <app-journey data-section id="about"></app-journey>
     </main>
   </div>
 
@@ -108,7 +107,7 @@
   </style>
 
   <div class="container mx-auto px-4 md:px-8">
-    <app-contact #section id="contact"></app-contact>
+    <app-contact data-section id="contact"></app-contact>
   </div>
 
   <footer class="bg-gray-50 dark:bg-[#1C1C1C] border-t border-gray-200 dark:border-gray-800 mt-20">

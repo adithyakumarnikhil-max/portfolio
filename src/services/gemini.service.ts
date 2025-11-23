@@ -1,4 +1,5 @@
 
+
 import { Injectable, signal } from '@angular/core';
 import { GoogleGenAI, GenerateContentResponse, Type } from '@google/genai';
 
@@ -25,8 +26,8 @@ export class GeminiService {
       this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     } catch (e: unknown) {
       const errorMessage = e instanceof Error ? e.message : 'An unknown error occurred';
-      console.error('Failed to initialize Gemini AI:', errorMessage);
-      this.error.set('Failed to initialize AI Service. API Key might be missing.');
+      console.error(`Failed to initialize Gemini AI: ${errorMessage}. Ensure the process.env.API_KEY is available in your environment.`);
+      this.error.set('AI Service Initialization Failed: The API_KEY is missing or invalid. Please check your environment configuration.');
     }
   }
 

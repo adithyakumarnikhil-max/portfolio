@@ -1,29 +1,25 @@
 {
-  "name": "clickaura:-ai-powered-web-agency",
-  "private": true,
+  "name": "clickaura-ai-powered-web-agency",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "ng serve",
+    "ng": "ng",
+    "start": "ng serve",
     "build": "ng build",
-    "preview": "ng serve --configuration=production"
+    "watch": "ng build --watch --configuration development"
   },
+  "private": true,
   "dependencies": {
-    "rxjs": "^7.8.2",
-    "@google/genai": "^1.30.0",
-    "@angular/platform-browser": "^21.0.0",
-    "@angular/compiler": "^21.0.0",
     "@angular/common": "^21.0.0",
-    "@angular/forms": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",
-    "@angular/build": "^21.0.0",
-    "@angular/cli": "^21.0.0",
-    "@angular/compiler-cli": "^21.0.0",
-    "tailwindcss": "latest"
+    "@angular/forms": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "@google/genai": "^1.30.0",
+    "rxjs": "~7.8.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@angular/build": "^21.0.0",
+    "@angular/cli": "^21.0.0",
+    "typescript": "~5.9.4"
   }
 }

@@ -1,0 +1,156 @@
+<div class="min-h-screen w-full">
+  <header 
+    class="fixed top-0 left-0 right-0 z-50 bg-white/30 dark:bg-[#111111]/30 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-800/50 transition-transform duration-300 ease-in-out"
+    [class.translate-y-[-100%]]="!isHeaderVisible()">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="#home" class="flex items-center gap-2">
+          <svg
+            class="w-8 h-8 text-gray-900 dark:text-white"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2L2 7V17L12 22L22 17V7L12 2Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2 7L12 12L22 7"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 22V12"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">ClickAura</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#home" class="transition-colors hover:text-amber-500" [class]="activeSection() === 'home' ? 'text-amber-500' : 'text-gray-600 dark:text-gray-300'">Home</a>
+          <a href="#services" class="transition-colors hover:text-amber-500" [class]="activeSection() === 'services' ? 'text-amber-500' : 'text-gray-600 dark:text-gray-300'">Services</a>
+          <a href="#work" class="transition-colors hover:text-amber-500" [class]="activeSection() === 'work' ? 'text-amber-500' : 'text-gray-600 dark:text-gray-300'">Work</a>
+          <a href="#about" class="transition-colors hover:text-amber-500" [class]="activeSection() === 'about' ? 'text-amber-500' : 'text-gray-600 dark:text-gray-300'">About</a>
+          <a href="#contact" class="transition-colors hover:text-amber-500" [class]="activeSection() === 'contact' ? 'text-amber-500' : 'text-gray-600 dark:text-gray-300'">Contact</a>
+        </nav>
+        <div>
+          <button (click)="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+             @if (theme() === 'dark') {
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
+              </svg>
+             } @else {
+               <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+             }
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mx-auto px-4 md:px-8 pt-24">
+    <main>
+      <app-hero #section id="home"></app-hero>
+      <app-voice #section id="voice"></app-voice>
+      <app-services #section id="services"></app-services>
+      <app-work #section id="work"></app-work>
+      <app-journey #section id="about"></app-journey>
+    </main>
+  </div>
+
+  <section class="py-20 overflow-hidden whitespace-nowrap bg-gray-100 dark:bg-transparent">
+      <div class="relative">
+        <h2 class="text-5xl md:text-7xl font-bold text-gray-300 dark:text-gray-800 uppercase animate-marquee whitespace-nowrap">
+            ClickAura # Web design / AI Agency # ClickAura # Web design / AI Agency #
+        </h2>
+      </div>
+  </section>
+  
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 30s linear infinite;
+        white-space: nowrap;
+        will-change: transform;
+    }
+
+    @keyframes gradient-text-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-gradient-text {
+      background-size: 200% 200%;
+      animation: gradient-text-animation 5s ease-in-out infinite;
+    }
+  </style>
+
+  <div class="container mx-auto px-4 md:px-8">
+    <app-contact #section id="contact"></app-contact>
+  </div>
+
+  <footer class="bg-gray-50 dark:bg-[#1C1C1C] border-t border-gray-200 dark:border-gray-800 mt-20">
+    <div class="container mx-auto px-4 md:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="md:col-span-1">
+          <a href="#home" class="flex items-center gap-2 mb-4">
+            <svg class="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              <path d="M2 7L12 12L22 7" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+            <span class="text-xl font-bold text-gray-900 dark:text-white">ClickAura</span>
+          </a>
+          <p class="text-gray-500 dark:text-gray-400">Elevating brands with stunning websites and intelligent AI solutions.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h3>
+          <nav class="flex flex-col gap-3">
+            <a href="#home" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">Home</a>
+            <a href="#services" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">Services</a>
+            <a href="#work" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">Work</a>
+            <a href="#about" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">About</a>
+            <a href="#contact" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Legal</h3>
+          <nav class="flex flex-col gap-3">
+            <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">Privacy Policy</a>
+            <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 transition-colors">Terms of Service</a>
+          </nav>
+        </div>
+        <div>
+           <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Get In Touch</h3>
+           <p class="text-gray-500 dark:text-gray-400">Ready to start a project? <br/> Let's talk.</p>
+           <a href="mailto:hello@clickaura.dev" class="text-amber-500 hover:underline mt-2 inline-block">hello@clickaura.dev</a>
+        </div>
+      </div>
+      <div class="mt-16 border-t border-gray-200 dark:border-gray-800 pt-8 text-center text-gray-500 dark:text-gray-400">
+        <p>&copy; {{ currentYear }} ClickAura. All Rights Reserved. Designed & Developed by Team ClickAura.</p>
+      </div>
+    </div>
+  </footer>
+</div>
